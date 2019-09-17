@@ -1,4 +1,9 @@
 <template>
+    <v-container>
+            <span v-for="item in dataPerson">
+                {{ item }}
+            </span>
+    </v-container>
 </template>
 
 <script>
@@ -6,7 +11,7 @@
         name: "about",
         data() {
             return {
-                dataPerson: {}
+                dataPerson: ''
             }
         },
         mounted() {
@@ -15,9 +20,9 @@
                         'Authorization': 'Bearer '+localStorage.getItem('token')
                     }
                 })
-                    .then(response => {
-                       this.dataPerson = response.data;
-                    })
+                    .then(response =>
+                       this.dataPerson = response.data
+                    )
                     .catch(function (error) {
                         console.error(error.response);
                     })
