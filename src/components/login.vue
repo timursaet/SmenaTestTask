@@ -15,7 +15,7 @@
                     </v-card-text>
                     <v-card-actions>
                         <div class="flex-grow-1"></div>
-                        <v-btn color="primary" @click="submit()">Вход</v-btn>
+                        <v-btn color="primary" @click="auth()">Вход</v-btn>
                         <v-btn color="primary" :to="route">Новый пользователь</v-btn>
                     </v-card-actions>
                 </v-card>
@@ -36,15 +36,19 @@
             }
         },
         methods: {
-            submit () {
-                this.$http.post('http://localhost:8080/login'), {
+            auth() {
+                this.$http.post('http://localhost:8080/login', {
                     username: this.credential.username,
                     password: this.credential.password
-
-                        .then(response => {
-                            console.log(response)
-                        })
-                }
+                })
+                    .then(response => {
+                        const token = response.data.token;
+                        localStorage.setItem('token', token)
+                            this.$router.push('about');
+                    })
+                    .catch(function (error) {
+                        console.error(error.response);
+                    })
             }
         }
     }
