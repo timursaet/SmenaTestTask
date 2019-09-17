@@ -1,8 +1,4 @@
 <template>
-    <h5>{{dataPerson.id}}</h5>
-    <!--<h5>{{dataPerson.username}}</h5>
-    <h5>{{dataPerson.avatar}}</h5>
-    <h5>{{dataPerson.about}}</h5>-->
 </template>
 
 <script>
@@ -10,12 +6,7 @@
         name: "about",
         data() {
             return {
-                dataPerson: {
-                    ids: '',
-                    username: '',
-                    avatar: '',
-                    about: ''
-                }
+                dataPerson: {}
             }
         },
         mounted() {
@@ -25,11 +16,7 @@
                     }
                 })
                     .then(response => {
-                       /* this.dataPerson.id = response.data.id;
-                        this.dataPerson.username = response.data.username;
-                        this.dataPerson.avatar = response.data.avatar;
-                        this.dataPerson.about = response.data.about;*/
-                       console.log(response.data.about)
+                       this.dataPerson = response.data;
                     })
                     .catch(function (error) {
                         console.error(error.response);

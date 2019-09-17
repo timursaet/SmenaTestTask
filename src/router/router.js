@@ -32,21 +32,7 @@ export default new Router({
       name: 'about',
       component: function () {
         return import('../components/about.vue')
-      },
-      meta: {
-        requiresAuth: true
       }
-    },
+    }
   ]
 })
-/*
-router.beforeEach((to, from, next) => {
-  if(to.matched.some(record => record.meta.requiresAuth)) {
-    if (localStorage.getItem('token') == null) {
-      next({
-        path: '/login'
-      })
-    }
-  }
-})
-*/

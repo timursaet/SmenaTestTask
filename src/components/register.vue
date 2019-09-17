@@ -9,8 +9,8 @@
                     </v-toolbar>
                     <v-card-text>
                         <v-form>
-                            <v-text-field label="Login" name="login" type="text" v-model="register.login"></v-text-field>
-                            <v-text-field id="password" label="Password" name="password" type="password" v-model="register.password"></v-text-field>
+                            <v-text-field label="Login" name="login" type="text" v-model="registerForm.login"></v-text-field>
+                            <v-text-field id="password" label="Password" name="password" type="password" v-model="registerForm.password"></v-text-field>
                         </v-form>
                     </v-card-text>
                     <v-card-actions>
@@ -28,7 +28,7 @@
     export default {
         data() {
             return {
-                register: {
+                registerForm: {
                     login: '',
                     password: ''
                 },
@@ -38,11 +38,11 @@
         methods: {
             register() {
                 this.$http.post('http://localhost:8080/register', {
-                    username: this.register.login,
-                    password: this.register.password
+                    username: this.registerForm.login,
+                    password: this.registerForm.password
                 })
                     .then(response => {
-                       console.log("Пользователь зареган!")
+                       console.log("Пользователь зареган")
                     })
                     .catch(function (error) {
                         console.error(error.response);

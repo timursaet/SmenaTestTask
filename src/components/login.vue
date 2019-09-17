@@ -41,7 +41,7 @@
                     username: this.credential.username,
                     password: this.credential.password
                 })
-                    .then(response => {
+                    .then(response => { 
                         const token = response.data.token;
                         localStorage.setItem('token', token)
                             this.$router.push('about');
