@@ -5,7 +5,6 @@ import vuetify from './plugins/vuetify'
 import Axios from 'axios'
 
 Vue.prototype.$http = Axios;
-
 /*
 const token = localStorage.getItem('token')
 

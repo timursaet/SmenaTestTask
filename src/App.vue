@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import home from './components/home';
+import home from './components/header/header';
 
 export default {
   name: 'App',

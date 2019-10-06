@@ -1,5 +1,5 @@
 <template>
-    <v-container class="fill-height" fluid>
+    <v-container class="fill-height" fluid>{{errorView}}
         <v-row align="center" justify="center">
             <v-col cols="12" sm="8" md="4">
                 <v-card class="elevation-12">
@@ -32,7 +32,8 @@
                     username: '',
                     password: ''
                 },
-                route: '/register'
+                route: '/register',
+                errorView: ''
             }
         },
         methods: {
@@ -41,13 +42,14 @@
                     username: this.credential.username,
                     password: this.credential.password
                 })
-                    .then(response => { 
+                    .then(response => { console.log("вошел")
                         const token = response.data.token;
                         localStorage.setItem('token', token)
                             this.$router.push('about');
                     })
                     .catch(function (error) {
-                        console.error(error.response);
+                        //console.error(error.response.data.error);
+                        this.errorView = eval(error.response.data.error);
                     })
             }
         }

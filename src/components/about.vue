@@ -1,8 +1,9 @@
 <template>
     <v-container>
-            <span v-for="item in dataPerson">
-                {{ item }}
-            </span>
+        <span> <b>ID пользователя:</b> {{dataPerson.data.id}}</span><br>
+        <span> <b>Имя пользователя:</b> {{dataPerson.data.username}}</span><br>
+        <span> <b>Аватар пользователя:</b>   {{dataPerson.data.avatar}}</span><br>
+        <span> <b>Информация о пользователя:</b> {{dataPerson.data.about}}</span>
     </v-container>
 </template>
 
@@ -10,7 +11,7 @@
     export default {
         name: "about",
         data() {
-            return {
+               return {
                 dataPerson: ''
             }
         },

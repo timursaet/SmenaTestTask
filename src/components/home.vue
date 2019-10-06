@@ -1,14 +1,6 @@
 <template>
   <div>
-    <v-toolbar app dark class="primary">
-      <v-toolbar-title v-text="'Запрос к серверу'"></v-toolbar-title>
-      <v-spacer></v-spacer>
-      <v-toolbar-items>
-        <v-btn v-for="(item, i) in munuItems" flat :key="`munuItems${i}`" :to="item.route">
-          {{item.title}}
-        </v-btn>
-      </v-toolbar-items>
-    </v-toolbar>
+    <span class='header'>Добро пожаловать</span>
   </div>
 </template>
 
@@ -19,13 +11,24 @@
         return [
           {
             title: 'Домой',
-            route: '/home'
+            route: '/home',
+            visible: true
           },
           {
             title: 'Войти',
-            route: '/login'
-        }]
+            route: '/login',
+            visible: true
+        },{
+            title: 'Выйти',
+            route: '/login',
+            visible: false
+          }]
       }
     }
   }
 </script>
+<style>
+  .header{
+    text-align: center;
+  }
+</style>
